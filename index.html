@@ -2,40 +2,48 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>포트폴리오 - 김동균 (고양이 정보)</title>
+    <title>고양이 입양 포트폴리오 - 김동균</title>
     <style>
         /* 기본적인 포트폴리오 스타일 */
         body {
             font-family: Arial, sans-serif;
-            margin: 0; /* body 기본 마진 제거 */
+            margin: 0; 
             /* ------------------------------------- */
-            /* ⭐⭐⭐ 백그라운드 이미지 설정 (테마) ⭐⭐⭐ */
+            /* ⭐⭐ 배경 이미지 및 테마 설정 ⭐⭐ */
             /* ------------------------------------- */
-            background-image: url('./images/background.jpg'); /* 배경 이미지 경로 설정 */
+            background-image: url('./images/고양이 백그라운드.jpg'); /* 배경 이미지 경로 설정 */
             background-size: cover; /* 화면 전체를 채우도록 설정 */
             background-attachment: fixed; /* 화면 스크롤 시 배경 고정 */
-            background-color: #f4f4f9; /* 이미지가 없을 때 대비 색상 */
+            background-color: #f4f4f9; 
             /* ------------------------------------- */
         }
         .container {
             max-width: 800px;
-            margin: 40px auto; /* 상하 마진 40px, 좌우 중앙 정렬 */
-            background: rgba(255, 255, 255, 0.95); /* 흰색 배경에 투명도 95% 적용하여 배경 이미지가 은은하게 보이도록 설정 */
+            margin: 40px auto; 
+            /* ⭐⭐ 콘텐츠 영역 불투명도 조절 (85% 투명도) ⭐⭐ */
+            background: rgba(255, 255, 255, 0.85); /* 흰색 배경에 불투명도 적용 */
             padding: 30px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* 그림자 진하게 설정 */
-            border-radius: 10px; /* 모서리 둥글게 */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* 그림자 강화 */
+            border-radius: 12px; /* 모서리 둥글게 */
         }
         h1, h2 {
-            color: #333;
             border-bottom: 2px solid #ddd;
             padding-bottom: 5px;
+            font-weight: bold;
         }
+        /* ⭐⭐ 고양이 종류 글씨 색상 설정 ⭐⭐ */
+        .cheese-tabby { color: #FF8C00; } /* 코숏 치즈태비: 주황색 */
+        .russian-blue { color: #708090; } /* 러시안 블루: 슬레이트 회색 */
+        .scottish-fold { color: #A0522D; } /* 스코티시 폴드: 시에나 갈색 */
+        .persian { color: #582900; } /* 페르시안: 짙은 갈색 */
+        /* ------------------------------------- */
+
         .portfolio-item {
             margin-bottom: 20px;
             padding: 15px;
             border: 1px solid #ccc;
             border-radius: 8px;
-            background-color: #fcfcfc;
+            background-color: #fefefe;
             display: flex; 
             align-items: center; 
         }
@@ -68,23 +76,16 @@
             border-radius: 4px;
             cursor: pointer;
             font-weight: bold;
-            transition: background-color 0.3s;
         }
         .adopt-button {
-            background-color: #4CAF50; /* 입양 버튼 (초록색) */
+            background-color: #4CAF50; 
             color: white;
-        }
-        .adopt-button:hover {
-            background-color: #45a049;
         }
         .detail-button {
-            background-color: #f44336; /* 둘러보기 버튼 (빨간색) */
+            background-color: #f44336; 
             color: white;
         }
-        .detail-button:hover {
-            background-color: #da3e32;
-        }
-        /* 모달 (팝업창) 스타일 */
+        /* 모달 스타일 (이전과 동일) */
         .modal {
             display: none; 
             position: fixed; 
@@ -123,10 +124,10 @@
 <body>
 
     <div class="container">
-        <h1>고양이 입양 포트폴리오 - 김동균</h1>
+        <h1>고양고양 유기묘 입양소</h1>
         <p>GitHub Pages를 활용하여 제작한 고양이 입양 정보 소개 페이지입니다.</p>
 
-        <h2>1. 코리안 숏헤어 (치즈태비)</h2>
+        <h2 class="cheese-tabby">1. 코리안 숏헤어 (치즈태비)</h2>
         <div class="portfolio-item">
             <img src="./images/고양이1.jpg" alt="코리안 숏헤어 이미지" class="item-image" onclick="toggleDisplay('desc1')">
             
@@ -145,7 +146,7 @@
             </div>
         </div>
 
-        <h2>2. 러시안 블루</h2>
+        <h2 class="russian-blue">2. 러시안 블루</h2>
         <div class="portfolio-item">
             <img src="./images/고양이2.jpg" alt="러시안 블루 이미지" class="item-image" onclick="toggleDisplay('desc2')">
             
@@ -164,7 +165,7 @@
             </div>
         </div>
 
-        <h2>3. 스코티시 폴드</h2>
+        <h2 class="scottish-fold">3. 스코티시 폴드</h2>
         <div class="portfolio-item">
             <img src="./images/고양이3.jpg" alt="스코티시 폴드 이미지" class="item-image" onclick="toggleDisplay('desc3')">
             
@@ -183,7 +184,7 @@
             </div>
         </div>
 
-        <h2>4. 페르시안</h2>
+        <h2 class="persian">4. 페르시안</h2>
         <div class="portfolio-item">
             <img src="./images/고양이4.jpg" alt="페르시안 이미지" class="item-image" onclick="toggleDisplay('desc4')">
             
@@ -213,15 +214,12 @@
     </div>
 
     <script>
-        // 모달 관련 변수
         const modal = document.getElementById('adoptModal');
         const modalText = document.getElementById('modalText');
         let currentCatName = ''; 
 
-        // 1. 상세 설명 토글 함수 (이미지 클릭 및 '둘러보기' 버튼 클릭 시 사용)
         function toggleDisplay(id) {
             const descriptionElement = document.getElementById(id);
-            // 상세 설명 창을 토글 (보였다가 숨기기)
             if (descriptionElement.style.display === 'block') {
                 descriptionElement.style.display = 'none';
             } else {
@@ -229,25 +227,21 @@
             }
         }
 
-        // 2. '입양하기' 버튼 클릭 시 모달 표시 함수
         function showAdoptModal(catName) {
             currentCatName = catName;
             modalText.innerHTML = `정말로 **${catName}**를 입양하시겠습니까?`;
             modal.style.display = 'block';
         }
 
-        // 3. 모달 닫기 함수
         function closeAdoptModal() {
             modal.style.display = 'none';
         }
 
-        // 4. 입양 최종 확인 함수
         function confirmAdoption() {
             alert(`${currentCatName} 입양 신청이 완료되었습니다. 감사합니다!`);
             closeAdoptModal();
         }
 
-        // 모달 영역 밖 클릭 시 닫기
         window.onclick = function(event) {
             if (event.target == modal) {
                 closeAdoptModal();
