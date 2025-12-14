@@ -2,26 +2,28 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>고양이 입양 포트폴리오 - 김동균</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>고양이 입양 포트폴리오 - 김동균</title>
     <style>
-        /* 기본 스타일 (데스크톱 및 공통) */
+        /* 기본 스타일 (모든 화면 공통 및 데스크톱 기본) */
         body {
             font-family: Arial, sans-serif;
             margin: 0; 
+            /* 배경 이미지 경로는 업로드하신 파일명으로 정확히 설정되었습니다. */
             background-image: url('./images/고양이 백그라운드.jpg'); 
             background-size: cover; 
             background-attachment: fixed; 
             background-color: #f4f4f9; 
         }
         .container {
-            max-width: 800px;
+            max-width: 1000px; /* ⭐ 데스크톱 기본 최대 너비를 1000px로 확장 ⭐ */
             margin: 40px auto; 
             background: rgba(255, 255, 255, 0.85); 
             padding: 30px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); 
             border-radius: 12px; 
-            /* ⭐️ 화면 짤림 방지: 상세 설명이 켜져도 컨테이너가 잘리지 않도록 최소 높이 설정 */
             min-height: 100vh; 
+            transition: max-width 0.3s; /* 너비 변경 시 부드럽게 전환 */
         }
         h1, h2 {
             border-bottom: 2px solid #ddd;
@@ -54,7 +56,7 @@
             border-radius: 4px;
             object-fit: cover; 
             max-width: 100%; 
-            flex-shrink: 0; /* 이미지 크기 유지 */
+            flex-shrink: 0; 
         }
         /* 상세 설명 숨김 처리 */
         .description {
@@ -64,7 +66,7 @@
             border-top: 1px solid #ddd;
             background-color: #e9e9e9;
             border-radius: 4px;
-            overflow-x: auto; /* 내용이 넘쳐도 가로 스크롤만 생김 */
+            overflow-x: auto; 
         }
         /* 버튼 스타일 */
         .action-button {
@@ -91,36 +93,46 @@
         .close-button:hover, .close-button:focus { color: black; text-decoration: none; cursor: pointer; }
 
 
+        /* ----------------------------------------------------- */
+        /* ⭐ 대형 화면 최적화 (1200px 이상) - 노트북 및 대형 모니터 ⭐ */
+        /* ----------------------------------------------------- */
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1100px; /* 최대 너비를 1100px로 추가 확장 */
+                padding: 40px;
+            }
+        }
+
+
         /* ------------------------------------- */
-        /* ⭐️ 모바일 반응형 스타일 적용 (화면 너비 600px 이하) ⭐️ */
+        /* 모바일 반응형 스타일 (600px 이하) - 유지 */
         /* ------------------------------------- */
         @media (max-width: 600px) {
             .container {
-                margin: 0; /* 모바일에서 좌우 마진 제거 */
+                margin: 0; 
                 padding: 15px;
                 border-radius: 0;
             }
             .portfolio-item {
-                flex-direction: column; /* 이미지와 텍스트를 세로로 배열 */
-                align-items: flex-start; /* 왼쪽 정렬 */
+                flex-direction: column; 
+                align-items: flex-start; 
             }
             .item-image {
-                width: 100%; /* 이미지를 가로 전체 너비로 확장 */
-                height: auto; /* 높이 자동 조절 */
-                margin: 0 0 10px 0; /* 아래쪽에 마진 추가 */
+                width: 100%; 
+                height: auto; 
+                margin: 0 0 10px 0; 
             }
             .description {
-                 /* 모바일에서 상세 설명이 화면 너비를 넘지 않도록 설정 */
                 width: 100%;
-                box-sizing: border-box; /* 패딩과 보더를 너비에 포함 */
+                box-sizing: border-box; 
             }
              .action-button {
-                display: block; /* 버튼을 세로로 배열 */
+                display: block; 
                 width: 100%;
                 margin: 5px 0;
             }
             .modal-content {
-                width: 90%; /* 모바일에서 모달 너비 확장 */
+                width: 90%; 
                 margin: 30% auto;
             }
         }
