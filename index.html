@@ -2,41 +2,37 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>고양이 입양 포트폴리오 - 김동균</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>고양이 입양 포트폴리오 - 김동균</title>
     <style>
-        /* 기본적인 포트폴리오 스타일 */
+        /* 기본 스타일 (데스크톱 및 공통) */
         body {
             font-family: Arial, sans-serif;
             margin: 0; 
-            /* ------------------------------------- */
-            /* ⭐⭐ 배경 이미지 및 테마 설정 ⭐⭐ */
-            /* ------------------------------------- */
-            background-image: url('./images/고양이 백그라운드.jpg'); /* 배경 이미지 경로 설정 */
-            background-size: cover; /* 화면 전체를 채우도록 설정 */
-            background-attachment: fixed; /* 화면 스크롤 시 배경 고정 */
+            background-image: url('./images/고양이 백그라운드.jpg'); 
+            background-size: cover; 
+            background-attachment: fixed; 
             background-color: #f4f4f9; 
-            /* ------------------------------------- */
         }
         .container {
             max-width: 800px;
             margin: 40px auto; 
-            /* ⭐⭐ 콘텐츠 영역 불투명도 조절 (85% 투명도) ⭐⭐ */
-            background: rgba(255, 255, 255, 0.85); /* 흰색 배경에 불투명도 적용 */
+            background: rgba(255, 255, 255, 0.85); 
             padding: 30px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* 그림자 강화 */
-            border-radius: 12px; /* 모서리 둥글게 */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); 
+            border-radius: 12px; 
+            /* ⭐️ 화면 짤림 방지: 상세 설명이 켜져도 컨테이너가 잘리지 않도록 최소 높이 설정 */
+            min-height: 100vh; 
         }
         h1, h2 {
             border-bottom: 2px solid #ddd;
             padding-bottom: 5px;
             font-weight: bold;
         }
-        /* ⭐⭐ 고양이 종류 글씨 색상 설정 ⭐⭐ */
-        .cheese-tabby { color: #FF8C00; } /* 코숏 치즈태비: 주황색 */
-        .russian-blue { color: #708090; } /* 러시안 블루: 슬레이트 회색 */
-        .scottish-fold { color: #A0522D; } /* 스코티시 폴드: 시에나 갈색 */
-        .persian { color: #582900; } /* 페르시안: 짙은 갈색 */
-        /* ------------------------------------- */
+        /* 고양이 종류 글씨 색상 설정 */
+        .cheese-tabby { color: #FF8C00; } 
+        .russian-blue { color: #708090; } 
+        .scottish-fold { color: #A0522D; } 
+        .persian { color: #582900; } 
 
         .portfolio-item {
             margin-bottom: 20px;
@@ -58,6 +54,7 @@
             border-radius: 4px;
             object-fit: cover; 
             max-width: 100%; 
+            flex-shrink: 0; /* 이미지 크기 유지 */
         }
         /* 상세 설명 숨김 처리 */
         .description {
@@ -67,6 +64,7 @@
             border-top: 1px solid #ddd;
             background-color: #e9e9e9;
             border-radius: 4px;
+            overflow-x: auto; /* 내용이 넘쳐도 가로 스크롤만 생김 */
         }
         /* 버튼 스타일 */
         .action-button {
@@ -77,54 +75,61 @@
             cursor: pointer;
             font-weight: bold;
         }
-        .adopt-button {
-            background-color: #4CAF50; 
-            color: white;
-        }
-        .detail-button {
-            background-color: #f44336; 
-            color: white;
-        }
+        .adopt-button { background-color: #4CAF50; color: white; }
+        .detail-button { background-color: #f44336; color: white; }
+
         /* 모달 스타일 (이전과 동일) */
         .modal {
-            display: none; 
-            position: fixed; 
-            z-index: 10; 
-            left: 0;
-            top: 0;
-            width: 100%; 
-            height: 100%; 
-            overflow: auto; 
+            display: none; position: fixed; z-index: 10; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; 
             background-color: rgba(0,0,0,0.6); 
         }
         .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto; 
-            padding: 30px;
-            border: 1px solid #888;
-            width: 80%; 
-            max-width: 400px;
-            border-radius: 10px;
-            text-align: center;
+            background-color: #fefefe; margin: 15% auto; padding: 30px; border: 1px solid #888; width: 80%; 
+            max-width: 400px; border-radius: 10px; text-align: center;
         }
-        .close-button {
-            color: #aaa;
-            float: right;
-            font-size: 32px;
-            font-weight: bold;
-        }
-        .close-button:hover,
-        .close-button:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
+        .close-button { color: #aaa; float: right; font-size: 32px; font-weight: bold; }
+        .close-button:hover, .close-button:focus { color: black; text-decoration: none; cursor: pointer; }
+
+
+        /* ------------------------------------- */
+        /* ⭐️ 모바일 반응형 스타일 적용 (화면 너비 600px 이하) ⭐️ */
+        /* ------------------------------------- */
+        @media (max-width: 600px) {
+            .container {
+                margin: 0; /* 모바일에서 좌우 마진 제거 */
+                padding: 15px;
+                border-radius: 0;
+            }
+            .portfolio-item {
+                flex-direction: column; /* 이미지와 텍스트를 세로로 배열 */
+                align-items: flex-start; /* 왼쪽 정렬 */
+            }
+            .item-image {
+                width: 100%; /* 이미지를 가로 전체 너비로 확장 */
+                height: auto; /* 높이 자동 조절 */
+                margin: 0 0 10px 0; /* 아래쪽에 마진 추가 */
+            }
+            .description {
+                 /* 모바일에서 상세 설명이 화면 너비를 넘지 않도록 설정 */
+                width: 100%;
+                box-sizing: border-box; /* 패딩과 보더를 너비에 포함 */
+            }
+             .action-button {
+                display: block; /* 버튼을 세로로 배열 */
+                width: 100%;
+                margin: 5px 0;
+            }
+            .modal-content {
+                width: 90%; /* 모바일에서 모달 너비 확장 */
+                margin: 30% auto;
+            }
         }
     </style>
 </head>
 <body>
-
+    
     <div class="container">
-        <h1>고양고양 유기묘 입양소</h1>
+        <h1>고양이 입양 포트폴리오 - 김동균</h1>
         <p>GitHub Pages를 활용하여 제작한 고양이 입양 정보 소개 페이지입니다.</p>
 
         <h2 class="cheese-tabby">1. 코리안 숏헤어 (치즈태비)</h2>
